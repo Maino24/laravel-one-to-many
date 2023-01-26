@@ -10,4 +10,9 @@ class Post extends Model
         'title',
         'description',
     ];
+
+    public function category(){
+        //funzione di relazione
+        return $this->belongsTo('App\Category'); //Il post ha solo una categoria associata
+    }
 }
