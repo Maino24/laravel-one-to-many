@@ -27,7 +27,7 @@
                 {{--Category--}}
                 <div>
                     <label for="">Categories</label>
-                    <select name="category_id" id="">
+                    <select class="form-control" name="category_id" id="">
                         <option value="">seleziona la categoria</option>
                         @foreach ( $categories as $category )
                             <option value="{{$category->id}}">

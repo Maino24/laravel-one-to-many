@@ -9,6 +9,7 @@
             <th scope="col">#id</th>
             <th scope="col">Titolo</th>
             <th scope="col">Descrizione</th>
+            <th scope="col">Category_id</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -25,6 +26,11 @@
                   </a>
                 </td>
                 <td>{{$post -> description}}</td>
+                <td>
+                    @if ($post -> category)
+                        {{$post -> category['name']}}
+                    @endif
+                </td>
                 <td>
                     <a href="{{route('admin.posts.edit', $post->id)}}">
                         Edit
@@ -43,5 +49,7 @@
         @endforeach
     </table>
 
-
+    <div class="d-flex justify-content-center">
+        {{$posts->links()}}
+    </div>
 @endsection

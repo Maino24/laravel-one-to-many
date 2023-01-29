@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         $data = [
-            'posts' => Post::All()
+            'posts' => Post::with('category')->paginate(10)
         ];
 
         return view('admin.posts.index', $data);
@@ -47,7 +47,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        dd($data);
+        //dd($data);
 
         //validezione dei campi
         $request->validate([
