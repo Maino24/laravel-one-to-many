@@ -30,5 +30,17 @@
 
         </form>
 
+        <div class='mt-3'>
+            <label for="">Categories</label>
+            <select class="form-control" name="category_id" id="">
+                <option value="">seleziona la categoria</option>
+                @foreach ( $categories as $category )
+                    <option value="{{$category->id}}" {{$category->id == old('category_id', $post->category_id) ? 'selected' : ''}}>
+                        {{$category->name}}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
     </div>
 @endsection
