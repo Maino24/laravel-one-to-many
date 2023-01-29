@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
@@ -29,7 +30,11 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $data = [
+            'categories' => Category::All()
+        ];
+
+        return view('admin.posts.create', $data);
 
     }
 
@@ -42,6 +47,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        dd($data);
 
         //validezione dei campi
         $request->validate([

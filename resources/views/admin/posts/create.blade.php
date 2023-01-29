@@ -24,6 +24,19 @@
                     @enderror
                 </div>
 
+                {{--Category--}}
+                <div>
+                    <label for="">Categories</label>
+                    <select name="category_id" id="">
+                        <option value="">seleziona la categoria</option>
+                        @foreach ( $categories as $category )
+                            <option value="{{$category->id}}">
+                                {{$category->name}}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <button class="btn btn-primary">Crea</button>
 
         </form>
